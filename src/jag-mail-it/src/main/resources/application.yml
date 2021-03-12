@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: ${JMT_SPRING_REDIS_HOST:localhost}
+    port: ${JMT_SPRING_REDIS_PORT:6379}
+    password: ${JMT_SPRING_REDIS_PASSWORD:admin}

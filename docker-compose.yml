@@ -16,8 +16,8 @@ services:
   ###                                 REDIS SERVER                                          ###
   #############################################################################################
   redis:
-    container_name: redis:alpine
-    image: redis
+    container_name: redis
+    image: redis:alpine
     command: redis-server --requirepass admin
     ports:
       - "6379:6379"
@@ -31,8 +31,6 @@ services:
   ###                                 REDIS COMMANDER                                       ###
   #############################################################################################
   redis-commander:
-    container_name: redis-commander
-    hostname: redis-commander
     image: rediscommander/redis-commander:latest
     restart: always
     environment:

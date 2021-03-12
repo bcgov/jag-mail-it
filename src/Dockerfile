@@ -38,7 +38,7 @@ FROM openjdk:8-jdk-slim
 # ARG MVN_PROFILES
 ARG SERVICE_NAME=jag-mail-it
 
-COPY --from=build ./skywalking/apache-skywalking-apm-bin/agent /app/agent
+# COPY --from=build ./skywalking/apache-skywalking-apm-bin/agent /app/agent
 
 COPY --from=build ./${SERVICE_NAME}/target/${SERVICE_NAME}-*.jar /app/service.jar
 

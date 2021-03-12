@@ -49,6 +49,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				 <configuration>
+                    <mainClass>ca.bc.gov.open.jag.jagmailit.JagMailItApplication</mainClass>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>

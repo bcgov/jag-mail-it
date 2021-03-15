@@ -4,7 +4,7 @@ import ca.bc.gov.open.jag.jagmailit.api.MailApiDelegate;
 import ca.bc.gov.open.jag.jagmailit.api.model.EmailObject;
 import ca.bc.gov.open.jag.jagmailit.api.model.EmailRequest;
 import ca.bc.gov.open.jag.jagmailit.api.model.EmailResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import ca.bc.gov.open.jag.jagmailit.mail.mappers.SimpleMessageMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -16,29 +16,32 @@ import java.util.Optional;
 @Service
 public class MailApiDelegateImpl implements MailApiDelegate {
 
-    @Autowired
-    private JavaMailSender emailSender;
+    private final JavaMailSender emailSender;
+
+    private final SimpleMessageMapper simpleMessageMapper;
+
+    public MailApiDelegateImpl(JavaMailSender emailSender, SimpleMessageMapper simpleMessageMapper) {
+        this.emailSender = emailSender;
+        this.simpleMessageMapper = simpleMessageMapper;
+    }
 
     @Override
     public ResponseEntity<EmailResponse> mailSend(EmailRequest emailRequest) {
 
-        EmailResponse emailResponse = new EmailResponse();
-        emailResponse.setAcknowledge(true);
-
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(emailRequest.getFrom().getEmail());
         Optional<EmailObject> emailObject = emailRequest.getTo().stream().findFirst();
 
         if (!emailObject.isPresent()) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST, null);
+            return new ResponseEntity("error", HttpStatus.BAD_REQUEST);
         }
 
-        message.setSubject(emailRequest.getSubject());
-        message.setText(emailRequest.getContent().getValue());
-        message.setTo(emailObject.get().getEmail());
+        SimpleMailMessage simpleMailMessage = simpleMessageMapper.toSimpleMailMessage(emailRequest);
 
-        emailSender.send(message);
+        emailSender.send(simpleMailMessage);
+
+        EmailResponse emailResponse = new EmailResponse();
+        emailResponse.setAcknowledge(true);
 
         return ResponseEntity.accepted().body(emailResponse);
+
     }
 }

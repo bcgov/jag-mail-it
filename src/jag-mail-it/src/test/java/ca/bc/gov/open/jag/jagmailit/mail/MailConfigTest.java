@@ -14,7 +14,6 @@ public class MailConfigTest {
     ApplicationContextRunner context = new ApplicationContextRunner()
             .withUserConfiguration(MailConfig.class);
 
-
     @Test
     @DisplayName("ok: testing email configuration")
     public void shouldReturnValidConfiguration() {

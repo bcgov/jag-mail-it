@@ -1,9 +1,8 @@
 version: "3.7"
 services:
 
-
   #############################################################################################
-  ###                           Efiling api backend app                                     ###
+  ###                           Email server backend app                                    ###
   #############################################################################################
   mail-it:
     build:
@@ -11,9 +10,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - JMT_SPRING_REDIS_PORT=6379
-      - JMT_SPRING_REDIS_HOST=redis
-      - JMT_SPRING_REDIS_PASSWORD=admin
       - JMT_SPRING_EMAIL_HOST=mailhog
       - JMT_SPRING_EMAIL_PORT=1025
     networks:
@@ -29,40 +25,6 @@ services:
       - "1025:1025"
     networks:
         - mail-it-net
-
-  #############################################################################################
-  ###                                 REDIS SERVER                                          ###
-  #############################################################################################
-  redis:
-    container_name: redis
-    image: redis:alpine
-    command: redis-server --requirepass admin
-    ports:
-      - "6379:6379"
-    volumes:
-      - data-redis:/data
-    restart: always
-    networks:
-      - mail-it-net
-
-  #############################################################################################
-  ###                                 REDIS COMMANDER                                       ###
-  #############################################################################################
-  redis-commander:
-    image: rediscommander/redis-commander:latest
-    restart: always
-    environment:
-      - REDIS_PORT=6379
-      - REDIS_HOST=redis
-      - REDIS_PASSWORD=admin
-    ports:
-      - "8082:8081"
-    networks:
-      - mail-it-net
-
-volumes:
-  data-redis:
-    driver: local
 
 networks:
   mail-it-net:

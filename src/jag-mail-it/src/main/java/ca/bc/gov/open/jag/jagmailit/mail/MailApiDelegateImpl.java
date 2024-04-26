@@ -1,6 +1,6 @@
 package ca.bc.gov.open.jag.jagmailit.mail;
 
-import ca.bc.gov.open.jag.jagmailit.api.MailApiDelegate;
+import ca.bc.gov.open.jag.jagmailit.api.MailApi;
 import ca.bc.gov.open.jag.jagmailit.api.model.EmailObject;
 import ca.bc.gov.open.jag.jagmailit.api.model.EmailRequest;
 import ca.bc.gov.open.jag.jagmailit.api.model.EmailResponse;
@@ -11,12 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-@Service
-public class MailApiDelegateImpl implements MailApiDelegate {
+@RestController
+public class MailApiDelegateImpl implements MailApi {
 
     private final JavaMailSender emailSender;
 

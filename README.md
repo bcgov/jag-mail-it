@@ -22,4 +22,7 @@ A [redis](https://redis.io/) instance exposed on port 6379
 
 A [redis-commander](http://joeferner.github.io/redis-commander/) instance to query redis accessible at [http://localhost:8082](http://localhost:8082)
 
+#### Spring Doc:
+http://localhost:8080/swagger-ui.html and enter /v3/api-docs in search bar
+
 Let's hack!

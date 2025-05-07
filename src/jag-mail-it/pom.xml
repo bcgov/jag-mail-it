@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>ca.bc.gov.open.jag</groupId>
 	<artifactId>jag-mail-it</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>jag-mail-it</name>
 	<description>Mailing service</description>
 	<properties>

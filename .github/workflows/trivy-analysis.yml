@@ -42,7 +42,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: image
-          image-ref: jag-mail-it_mail-it
+          image-ref: jag-mail-it-mail-it
           format: sarif
           output: trivy-results.sarif
           exit-code: 1

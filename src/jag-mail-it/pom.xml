@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.2</version>
+		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ca.bc.gov.open.jag</groupId>
 	<artifactId>jag-mail-it</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>jag-mail-it</name>
 	<description>Mailing service</description>
 	<properties>
@@ -20,11 +20,11 @@
 		<io.swagger.version>2.2.21</io.swagger.version>
 		<org.glassfish.jersey.inject.version>2.32</org.glassfish.jersey.inject.version>
 		<org.openapitools.version>0.2.6</org.openapitools.version>
-		<joda-time.version>2.10.10</joda-time.version>
+		<joda-time.version>2.13.0</joda-time.version>
 		<jakarta.validation.version>3.1.0-M1</jakarta.validation.version>
-		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 		<org.springdoc.version>2.2.0</org.springdoc.version>
-		<log4j2.version>2.17.1</log4j2.version>
+		<log4j2.version>2.24.3</log4j2.version>
 	</properties>
 	<dependencies>
 
@@ -136,6 +136,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -152,7 +153,7 @@
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>7.0.0</version>
+				<version>7.9.0</version>
 				<executions>
 					<execution>
 						<id>spring-boot-api</id>

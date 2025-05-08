@@ -11,7 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      - name: Install oc
+        uses: redhat-actions/openshift-tools-installer@v1
+        with:
+          oc: latest
 
       - name: Cluster Login
         uses: redhat-developer/openshift-actions@v1.1
@@ -29,7 +34,7 @@ jobs:
           DOCKER_BUILDKIT: 1
         run: |          
           
-          docker-compose build mail-it
+          docker compose build mail-it
           
-          docker tag jag-mail-it_mail-it ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY }}/${{ secrets.OPENSHIFT_TOOLS_NAMESPACE }}/mail-it:latest
+          docker tag jag-mail-it-mail-it ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY }}/${{ secrets.OPENSHIFT_TOOLS_NAMESPACE }}/mail-it:latest
           docker push ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY }}/${{ secrets.OPENSHIFT_TOOLS_NAMESPACE }}/mail-it:latest

@@ -20,9 +20,6 @@ jobs:
 
       - name: Cluster Login
         uses: redhat-developer/openshift-actions@v1.1
-
-      - name: Cluster Login
-        uses: redhat-developer/openshift-actions@v1.1
         with:
           openshift_server_url: ${{ secrets.OPENSHIFT4_SERVER_URL_JRCC }}
           parameters: '{"apitoken": "${{ secrets.OPENSHIFT4_SA_PASSWORD_JRCC }}"}'

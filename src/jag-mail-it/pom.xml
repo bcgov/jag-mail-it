@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.5</version>
+		<version>3.5.15</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ca.bc.gov.open.jag</groupId>
 	<artifactId>jag-mail-it</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<name>jag-mail-it</name>
 	<description>Mailing service</description>
 	<properties>
@@ -19,11 +19,11 @@
 		<com.fasterxml.jackson.core.version>2.16.1</com.fasterxml.jackson.core.version>
 		<io.swagger.version>2.2.21</io.swagger.version>
 		<org.glassfish.jersey.inject.version>2.32</org.glassfish.jersey.inject.version>
-		<org.openapitools.version>0.2.6</org.openapitools.version>
+		<org.openapitools.version>0.2.10</org.openapitools.version>
 		<joda-time.version>2.13.0</joda-time.version>
 		<jakarta.validation.version>3.1.0-M1</jakarta.validation.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
-		<org.springdoc.version>2.2.0</org.springdoc.version>
+		<org.springdoc.version>2.8.17</org.springdoc.version>
 		<log4j2.version>2.24.3</log4j2.version>
 	</properties>
 	<dependencies>

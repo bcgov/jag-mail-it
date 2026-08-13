@@ -76,7 +76,6 @@ components:
               description: The actual content of the specified mime type that you are including in your email.
               minLength: 1
           required:
-            - type
             - value
     email_response:
       type: object
